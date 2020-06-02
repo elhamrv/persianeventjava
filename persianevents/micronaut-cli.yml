@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: persianevents
+---
+testFramework: junit
+sourceLanguage: java
