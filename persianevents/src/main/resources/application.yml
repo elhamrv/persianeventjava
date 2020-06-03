@@ -1,3 +1,20 @@
 micronaut:
   application:
     name: persianevents
+jpa:
+  default:
+    packages-to-scan:
+      - 'de.rafiei.persianevents.model'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+        format_sql: true
+
+datasources:
+  default:
+    url: jdbc:mysql://localhost:3306/persianevent?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driverClassName: com.mysql.jdbc.Driver
+    username: eli
+    password: eli

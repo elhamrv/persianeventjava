@@ -1,4 +1,4 @@
-package persianevents;
+package de.rafiei.persianevents;
 
 import io.micronaut.runtime.Micronaut;
 

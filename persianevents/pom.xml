@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>persianevents</groupId>
+  <groupId>de.rafiei</groupId>
   <artifactId>persianevents</artifactId>
   <version>0.1</version>
   <properties>
@@ -10,7 +13,7 @@
     <maven.compiler.source>${jdk.version}</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <exec.mainClass>persianevents.Application</exec.mainClass>
+    <exec.mainClass>de.rafiei.persianevents.Application</exec.mainClass>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
   </properties>
@@ -20,8 +23,10 @@
       <url>https://jcenter.bintray.com</url>
     </repository>
   </repositories>
+  <packaging>jar</packaging>
   <dependencyManagement>
     <dependencies>
+
       <dependency>
         <groupId>io.micronaut</groupId>
         <artifactId>micronaut-bom</artifactId>
@@ -29,6 +34,9 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+
+
+
     </dependencies>
   </dependencyManagement>
   <dependencies>
@@ -58,6 +66,53 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.20</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.4.14.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.micronaut.configuration</groupId>
+      <artifactId>micronaut-hibernate-jpa</artifactId>
+
+    </dependency>
+
+    <dependency>
+      <groupId>io.micronaut.configuration</groupId>
+      <artifactId>micronaut-jdbc-hikari</artifactId>
+      <version>2.2.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.10.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.10.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.10.0</version>
+    </dependency>
+    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.2.3</version>
@@ -76,6 +131,13 @@
     <dependency>
       <groupId>io.micronaut.test</groupId>
       <artifactId>micronaut-test-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>io.micronaut.test</groupId>
+      <artifactId>micronaut-test-spock</artifactId>
+      <version>1.0.0</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
