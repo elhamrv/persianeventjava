@@ -1,10 +1,6 @@
 package de.rafiei.persianevents.repository;
 
-import de.rafiei.persianevents.config.HibernateConfig;
 import de.rafiei.persianevents.model.Events;
-import org.hibernate.*;
-
-import java.util.ArrayList;
 
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
@@ -15,12 +11,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import io.micronaut.spring.tx.annotation.Transactional;
 import java.util.List;
-import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 
 @Singleton
 public class EventsHibernatRepository implements IEventsRepository {
 
-    
+
     @PersistenceContext
     private final EntityManager entityManager;
 
@@ -31,8 +26,7 @@ public class EventsHibernatRepository implements IEventsRepository {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Events> readEvents() throws Exception {
-
+    public List<Events> getAll() throws Exception {
 
 
         try{
@@ -67,12 +61,12 @@ public class EventsHibernatRepository implements IEventsRepository {
 
     @Override
     @Transactional
-    public boolean writeEvents(List<Events> event) throws Exception {
+    public boolean saveAll(List<Events> event) throws Exception {
 
 
         try {
             for(Events ev : event) {
-                insertOneEmployee(ev);
+                saveOne(ev);
             }
 
             return true;
@@ -112,7 +106,7 @@ public class EventsHibernatRepository implements IEventsRepository {
 
     @Override
     @Transactional(readOnly = false)
-    public boolean insertOneEmployee(Events event) throws Exception {
+    public boolean saveOne(Events event) throws Exception {
 
         //this.entityManager.getTransaction().begin();
 
@@ -132,7 +126,7 @@ public class EventsHibernatRepository implements IEventsRepository {
 
     @Override
     @Transactional
-    public boolean updateEvents(Events event) throws Exception {
+    public boolean update(Events event) throws Exception {
 
         //this.entityManager.getTransaction().begin();
 

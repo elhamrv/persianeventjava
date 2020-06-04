@@ -3,12 +3,9 @@ package de.rafiei.persianevents.repository
 import de.rafiei.persianevents.model.Events
 import io.micronaut.context.ApplicationContext
 import io.micronaut.runtime.server.EmbeddedServer
-import io.micronaut.test.annotation.MicronautTest
 import spock.lang.*
-import javax.inject.Inject
+
 import java.sql.Date
-import java.time.LocalDateTime
-import java.time.Month
 
 class EventsHibernatRepositorySpec  extends Specification{
 
@@ -38,7 +35,7 @@ class EventsHibernatRepositorySpec  extends Specification{
                     1)
 
         when: "new document is saved"
-            eventsRepository.insertOneEmployee(event)
+            eventsRepository.saveOne(event)
 
         def eventRead = eventsRepository.getById(event.getId())
 
