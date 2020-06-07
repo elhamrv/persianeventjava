@@ -29,16 +29,16 @@ public class City {
     @Column(
             name = "country_id"
     )
-    private int country_id ;
+    private int countryId;
 
     public City() {
     }
 
-    public City(int id, String name, int code, int country_id) {
+    public City(int id, String name, int code, int countryId) {
         this.id = id;
         this.name = name;
         this.code = code;
-        this.country_id = country_id;
+        this.countryId = countryId;
     }
 
     public int getId() {
@@ -65,11 +65,11 @@ public class City {
         this.code = code;
     }
 
-    public int getCountry_id() {
-        return country_id;
+    public int getCountryId() {
+        return countryId;
     }
 
-    public void setCountry_id(int country_id) {
-        this.country_id = country_id;
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
     }
 }

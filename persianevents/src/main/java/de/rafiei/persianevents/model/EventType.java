@@ -8,6 +8,7 @@ import javax.persistence.*;
         name = "tblevent_type"
 )
 public class EventType {
+
     @Id
     @Column(
             name = "id"
@@ -23,6 +24,9 @@ public class EventType {
             name = "status"
     )
     private int status ;
+
+    public EventType() {
+     }
 
     public EventType(int id, String name, int status) {
         this.id = id;
